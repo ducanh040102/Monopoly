@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1087851182619865352}
   - component: {fileID: 1087851182619865353}
   - component: {fileID: 1087851182619865354}
+  - component: {fileID: -903389652454354940}
   m_Layer: 0
   m_Name: SquareTile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +86,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-903389652454354940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087851182619865364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0a5ade0fe64a247a785860b48ac6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881892314165487890
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7c5a23a33e8e34ca7d6f6b4ffa7513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileName: 
+  type: 
+  houseType: 0
 --- !u!64 &8297380606061039886
 MeshCollider:
   m_ObjectHideFlags: 0

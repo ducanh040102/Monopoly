@@ -54,7 +54,7 @@ public class Dice : MonoBehaviour {
 	private static ArrayList allDice = new ArrayList();
 	// reference to the dice that are rolling
     private static ArrayList rollingDice = new ArrayList();
-
+	
 	//------------------------------------------------------------------------------------------------------------------------------
 	// public methods
 	//------------------------------------------------------------------------------------------------------------------------------	
@@ -63,7 +63,7 @@ public class Dice : MonoBehaviour {
 	/// This method will create/instance a prefab at a specific position with a specific rotation and a specific scale and assign a material
 	/// </summary>
 	public static GameObject prefab(string name, Vector3 position, Vector3 rotation, Vector3 scale, string mat) 
-	{		
+	{	
 		// load the prefab from Resources
         Object pf = Resources.Load("Prefabs/" + name);
 		if (pf!=null)
@@ -77,6 +77,9 @@ public class Dice : MonoBehaviour {
 				inst.transform.position = position;
 				inst.transform.Rotate(rotation);
 				inst.transform.localScale = scale;
+
+				inst.GetComponent<Rigidbody>().mass = 1;
+
 				// return the created instance (GameObject)
 				return inst;
 			}
@@ -91,6 +94,7 @@ public class Dice : MonoBehaviour {
 	/// </summary>
 	public static Material material(string matName)
 	{
+		
 		Material mat = null;
 		// check if material is cached
 		int idx = matNames.IndexOf(matName);
@@ -123,6 +127,7 @@ public class Dice : MonoBehaviour {
 	/// </summary>
 	public static void debug(string txt)
 	{
+		
 		Debug.Log(txt);
 	}		
 	
@@ -133,6 +138,7 @@ public class Dice : MonoBehaviour {
 	/// </summary>
 	public static void Roll(string dice, string mat, Vector3 spawnPoint, Vector3 force)
 	{
+		
         rolling = true;
 		// sotring dice to lowercase for comparing purposes
 		dice = dice.ToLower();				
@@ -167,7 +173,7 @@ public class Dice : MonoBehaviour {
 				spawnPoint.y = spawnPoint.y - 1 + Random.value * 2;
                 spawnPoint.y = spawnPoint.y - 1 + Random.value * 2;
 				// create the die prefab/gameObject
-                GameObject die = prefab(dieType, spawnPoint, Vector3.zero, Vector3.one, mat);
+                GameObject die = prefab(dieType, spawnPoint, Vector3.zero, Vector3.one * 5, mat);
 				// give it a random rotation
 				die.transform.Rotate(new Vector3(Random.value * 360, Random.value * 360, Random.value * 360));
 				// inactivate this gameObject because activating it will be handeled using the rollQueue and at the apropriate time
